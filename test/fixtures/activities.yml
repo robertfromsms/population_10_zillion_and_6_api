@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  accessibility: MyString
+  type: 
+  participants: MyString
+  price: MyString
+
+two:
+  description: MyString
+  accessibility: MyString
+  type: 
+  participants: MyString
+  price: MyString
