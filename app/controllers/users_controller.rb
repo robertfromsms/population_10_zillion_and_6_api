@@ -18,9 +18,14 @@ class UsersController < ApplicationController
   end
 
   def profile_update
-    @current_user.update(password: params[:user][:new_password])
-    render json: {user: UserSerializer.new(@current_user), message: 'Password Updated Sucessfully'},
-      status: :updated
+    if params[:user][:new_password]
+      @current_user.update(password: params[:user][:new_password])
+      render json: {user: UserSerializer.new(@current_user), message: 'Password Updated Sucessfully'},
+        status: :updated
+    else
+      render json: {error: "New password not found"},
+        status: :not_acceptable
+    end
   end
 
 	private
