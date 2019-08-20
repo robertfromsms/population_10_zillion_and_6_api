@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 	get '/profile', to: 'users#profile'
 	post '/profile', to: 'users#profile_update'
 	get '/activities/highestratedmostpopular', to: 'activities#highestratedmostpopular'
+	post '/activities/showbydescription', to: 'activities#showbydescription' 
 
   	resources :comments, only: [:create, :update]
   	resources :activity_instances, only: [:create, :update]
