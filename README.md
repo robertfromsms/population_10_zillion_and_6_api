@@ -81,3 +81,13 @@ activities#highestratedmostpopular gives you all activities sorted in desc order
 get '/activities/highestratedmostpopular'
 
 this route returns everyAverageRating and everyTotalCompleted, they are arrays. This feels like it's very computational intensive, so dont do this route very often.
+
+activities#showbydescription gives you all the stuff and comments about a activity
+post '/activities/showbydescription' takes BODY =
+{
+  "activity": {
+    "description": (here's where you put the description, an unique id for the activity)
+  }
+}
+
+this route returns all the useful things for one activity.
