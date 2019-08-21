@@ -4,6 +4,7 @@ class UserSerializer < ActiveModel::Serializer
   def activity_instances_with_activity
   	activity_instances_with_activity = self.object.activity_instances.map do |activity_instance|
   		{
+        id: activity_instance.id,
   			description: activity_instance.activity.description,
   			rating: activity_instance.rating,
   			completed: activity_instance.completed,
