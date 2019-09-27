@@ -11,5 +11,4 @@ class AuthenticationController < ApplicationController
 			render json: {error: "Login Unsuccessful"}, status: :unauthorized
 		end
 	end
-
 end

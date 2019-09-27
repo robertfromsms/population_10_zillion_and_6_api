@@ -18,12 +18,13 @@ class UsersController < ApplicationController
   end
 
   def profile_update
-    if params[:user][:new_password]
-      @current_user.update(password: params[:user][:new_password])
-      render json: {user: UserSerializer.new(@current_user), message: 'Password Updated Sucessfully'},
+    if params[:user][:password]
+      auth_token = JsonWebToken.encode({user_id: @current_user.id})
+      @current_user.update(password: params[:user][:password])
+      render json: {user: UserSerializer.new(@current_user), message: 'Password Updated Sucessfully', jwt: auth_token},
         status: :updated
     else
-      render json: {error: "New password not found"},
+      render json: {error: "Password not updated"},
         status: :not_acceptable
     end
   end
