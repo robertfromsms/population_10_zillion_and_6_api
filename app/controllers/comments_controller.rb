@@ -1,10 +1,18 @@
 class CommentsController < ApplicationController
 	def create
-		@the_activity = Activity.find_by(description: params[:comment][:activity_description])
+		@the_activity = Activity.find_by(id: params[:comment][:activity_id])
 		@the_comment = Comment.new(user_id: @current_user.id, activity_id: @the_activity.id, content: params[:comment][:content])
 
 		if @the_comment.save
-			render json: {comment: CommentSerializer.new(@the_comment), message: 'Comment Created Sucessfully'},
+			render json: {
+				comment: {
+					id: @the_comment.id, 
+					user: @the_comment.user.user_name, 
+					content: @the_comment.content,
+					written_at: @the_comment.created_at
+				},
+				message: 'Comment Created Sucessfully'
+			},
   				status: :created
 		else
 			render json: {error: 'failed to create comment'}
