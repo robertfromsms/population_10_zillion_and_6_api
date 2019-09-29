@@ -11,6 +11,8 @@ About this backend api,
 7. postgresql database
 8. output json data
 
+Deployed URL: https://shielded-lowlands-50599.herokuapp.com
+
 THESE ROUTES MAY BE OUTDATED
 
 users#create to create a user.
