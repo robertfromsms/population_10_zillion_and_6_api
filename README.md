@@ -1,3 +1,9 @@
+This app suggests activities for bored users. The user can mark an activity instance complete and rate it. The user can go to the activity page, pick an activity and view the site wide average rating and comment on the activity. This app connects https://www.boredapi.com/ for suggestions of an activity. 
+
+This backend uses a mix of traditional REST routes and custom routes to minimize the number of http request necessary. 
+
+THESE ROUTES MAY BE OUTDATED
+
 users#create to create a user.
 post "/users" takes BODY = 
 {
