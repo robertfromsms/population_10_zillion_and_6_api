@@ -1,5 +1,5 @@
 class CommentSerializer < ActiveModel::Serializer
-  	attributes :id, :content, :activity_details
+  	attributes :id, :content
 
     def activity_details
 	  	{

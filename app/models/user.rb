@@ -8,4 +8,8 @@ class User < ApplicationRecord
  	has_many :activities, through: :activity_instances
 
  	has_many :comments
+
+ 	def completed_activity_instances_count
+ 		self.activity_instances.where(completed: true).length
+ 	end
 end
