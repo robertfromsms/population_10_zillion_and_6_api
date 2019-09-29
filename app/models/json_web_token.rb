@@ -1,11 +1,25 @@
 class JsonWebToken
 	def self.encode(payload)
 		payload.reverse_merge!(meta)
-		JWT.encode(payload, Rails.application.secrets.secret_key_base)
+
+		if ENV["SECRET_KEY_BASE"]
+			secret = ENV["SECRET_KEY_BASE"] # key on heroku through environment variables
+		else
+			secret = Rails.application.secrets.secret_key_base # key locally
+		end
+
+		JWT.encode(payload, secret)
 	end
 
 	def self.decode(token)
-		JWT.decode(token, Rails.application.secrets.secret_key_base)
+
+		if ENV["SECRET_KEY_BASE"] 
+			secret = ENV["SECRET_KEY_BASE"] # key on heroku through environment variables
+		else
+			secret = Rails.application.secrets.secret_key_base # key locally
+		end
+
+		JWT.decode(token, secret)
 	end
 
 	def self.valid_payload(payload)
