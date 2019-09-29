@@ -1,6 +1,15 @@
 This app suggests activities for bored users. The user can mark an activity instance complete and rate it. The user can go to the activity page, pick an activity and view the site wide average rating and comment on the activity. This app connects https://www.boredapi.com/ for suggestions of an activity. 
 
-This backend uses a mix of traditional REST routes and custom routes to minimize the number of http request necessary. 
+About this backend api,
+
+1. ruby on rails
+2. json web token for auth 
+3. This backend uses a mix of traditional REST routes and custom routes to minimize the number of http request necessary.
+4. encrypted password implmentation with json web token
+5. pretty much all routes requires jwt.
+6. implemented cross origin resource sharing, cors. Currently, any origin can access the api, if you want to access the database with postman or something like that, read more below.
+7. postgresql database
+8. output json data
 
 THESE ROUTES MAY BE OUTDATED
 
